@@ -1,0 +1,103 @@
+# ---- General OS files ----
+
+.DS\_Store
+Thumbs.db
+
+# ---- Python ----
+
+**pycache**/
+\*.py\[cod]
+\*.pyo
+\*.pyd
+\*.egg
+\*.egg-info/
+.eggs/
+
+# Packaging / build
+
+build/
+dist/
+wheelhouse/
+\*.manifest
+pip-wheel-metadata/
+
+# Virtual envs
+
+venv/
+.venv/
+.env/
+.env
+
+# Test & coverage artifacts
+
+.cache/
+.pytest\_cache/
+.mypy\_cache/
+.hypothesis/
+.coverage
+.coverage.\*
+htmlcov/
+
+# Jupyter / IPython
+
+.ipynb\_checkpoints/
+
+# ---- Streamlit ----
+
+.streamlit/
+.streamlit/secrets.toml
+
+# ---- Node / Front‑end (SvelteKit, React, etc.) ----
+
+node\_modules/
+
+# Vite / Svelte build outputs
+
+.vite/
+
+# Generic JS builds
+
+build/
+dist/
+
+# Logs
+
+*.log
+yarn-debug.log*
+yarn-error.log\*
+npm-debug.log\*
+pnpm-debug.log\*
+
+# ---- Docker & Compose ----
+
+# Local override files / intermediate layers
+
+Dockerfile.\*.backup
+docker-compose.override.yml
+
+# ---- IDE / Editor configs ----
+
+.idea/
+.vscode/
+\*.code-workspace
+\*\~
+\*.swp
+
+# ---- AWS & Secrets ----
+
+\*.pem
+.aws/
+
+# .env already excluded above
+
+# ---- Misc ----
+
+# macOS resource forks
+
+\*.DS\_Store?
+
+# patch/diff artifacts
+
+\*.orig
+\*.rej
+
