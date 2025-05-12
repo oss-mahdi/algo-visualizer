@@ -1,6 +1,6 @@
 class Sort:
-    def __init__(self):
-        self.lst = [3,6,2,3,5,2,1,3,6,7]
+    def __init__(self, lst):
+        self.lst = lst
 
     def swap( first, second, list ):
         temp = list[first]
@@ -18,7 +18,6 @@ class Sort:
                 if local_lst[j] > local_lst[j+1]:
                     Sort.swap( j, j+1,local_lst )
 
-        print(local_lst)
         return local_lst
 
     def selection_sort(self):
@@ -33,7 +32,6 @@ class Sort:
                     smallest = j
             Sort.swap(i, smallest, local_lst)
 
-        print(local_lst)
         return local_lst;
 
 
@@ -48,7 +46,6 @@ class Sort:
                 Sort.swap( curr,curr-1,local_lst )
                 curr -=1
 
-        print(local_lst)
         return local_lst
 
     def merge_sort_recursive(self):
@@ -94,7 +91,6 @@ class Sort:
 
         local_lst = self.lst.copy()
         merged_lst = _merge_sort( local_lst )
-        print( merged_lst )
         return merged_lst
 
     def merge_sort_iterative(self):
