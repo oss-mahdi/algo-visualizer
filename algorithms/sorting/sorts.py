@@ -43,15 +43,61 @@ class Sort:
         n = len( local_lst)
 
         for i in range( 1,n ):
-                curr = i
-                while curr>0 and local_lst[curr]< local_lst[curr-1]:
-                    Sort.swap( curr,curr-1,local_lst )
-                    curr -=1
+            curr = i
+            while curr>0 and local_lst[curr]< local_lst[curr-1]:
+                Sort.swap( curr,curr-1,local_lst )
+                curr -=1
 
         print(local_lst)
         return local_lst
 
-    def merge_sort(self):
+    def merge_sort_recursive(self):
+        """Return a sorted copy of self.lst using merge sort(recursively)."""
+        def _merge( left,right ):
+            i = j = k = 0
+            merged_lst = [0]*( len(left) + len(right) )
+
+            # Handle Empty lists 
+            if not left:
+                return right
+            elif not right:
+                return left
+                
+
+            while i < len(left) and j < len(right):
+                if left[i] > right[j]:
+                    merged_lst[k] = right[j]
+                    k += 1
+                    j += 1
+                else:
+                    merged_lst[k] = left[i]
+                    k += 1
+                    i += 1
+            # Append Remaining elements        
+            if i < len(left):
+                merged_lst[k:] = left[i:]
+            elif j < len(right):
+                merged_lst[k:] = right[j:]
+            return merged_lst
+
+
+        def _merge_sort(lst):
+            if len( lst ) <= 1:
+                return lst
+
+            mid =  len( lst )//2 
+            left_lst  = _merge_sort( lst[:mid] )
+            right_lst = _merge_sort( lst[mid:] )
+
+            merged_lst = _merge( left_lst,right_lst )
+            return merged_lst
+
+        local_lst = self.lst.copy()
+        merged_lst = _merge_sort( local_lst )
+        print( merged_lst )
+        return merged_lst
+
+    def merge_sort_iterative(self):
         print(self.lst)
 
     def quick_sort(self):
