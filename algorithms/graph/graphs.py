@@ -57,16 +57,19 @@ class Graph:
             return []
         
         visited = set()
+        stack = deque([start])
+        visited.add(start)
         result = []
         
-        def dfs_rec(v):
-            visited.add(v)
+        while stack:
+            v = stack.pop()
             result.append(v)
+            
             for neighbor, _ in self.adj[v]:
                 if neighbor not in visited:
-                    dfs_rec(neighbor)
+                    visited.add(neighbor)
+                    stack.append(neighbor)
         
-        dfs_rec(start)
         return result
     
     def dijkstra(self, start):
